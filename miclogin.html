@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录到您的账户</title>
+	<link rel="stylesheet" type="text/css" href="css/miclogin.css">
+</head>
+<body>
+	<div id="login_con">
+		<img src="img/microsoft_logo_ed9c9eb0dce17d752bedea6b5acda6d9.png" alt="">
+		<h2>登录</h2>
+		<input type="text" placeholder="电子邮件、电话或 Skype">
+		<p><span>没有账户？</span><a href="foundaccount.html">创建一个</a></p>
+		<p><a href="#">无法访问您的账户？</a></p>
+		<input id="next_teep" type="button" value="登录">
+	</div>
+	<div id="footer">
+			<span id="ftrCopy">©2019 Microsoft</span>
+			<a href="#">使用条款</a>
+			<a href="#">隐私和cookie</a>
+			<a href="#">...</a>
+	</div>
+</body>
+</html>
+<script>
+	function $(str){//#box .cls  p
+		if(str.charAt(0)=="#"){
+			return document.getElementById(str.substring(1));
+		}else if(str.charAt(0)=="."){
+			return document.getElementsByClassName(str.substring(1));
+		}else{
+			return document.getElementsByTagName(str);
+		}
+	}
+	window.onload=function(){
+		$("#next_teep").onclick=function(){
+			location.href="passlogin.html";
+		}
+	}
+
+
+</script>

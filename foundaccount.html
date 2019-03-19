@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建账户</title>
+	<link rel="stylesheet" type="text/css" href="css/foundaccount.css">
+</head>
+<body>
+	<div class="login_con con_one">
+		<img src="img/microsoft_logo_ed9c9eb0dce17d752bedea6b5acda6d9.png" alt="">
+		<h2>创建账户</h2>
+		<input class="email_in" type="text" placeholder="someone@example.com">
+		<span class="tip" style="display: none;">请输入正确格式</span>
+		<div class='phone_con'>
+			<input class="area_num" type="text" placeholder="+86">
+			<input class="phone_num" type="text" placeholder="电话号码">
+		</div>
+		<p class="p1"><a href="#">改为使用电话号码</a></p>
+		<p class="p2"><a href="#">获取新的电子邮件地址</a></p>
+		<div class="in_btn">
+			<input class="in_one" type="submit" value="后退">
+			<input class="next_teep" type="submit" value="下一步">
+		</div>
+	</div>
+	<div class="login_con con_two">
+		<img src="img/microsoft_logo_ed9c9eb0dce17d752bedea6b5acda6d9.png" alt="">
+		<h2>账户密码</h2>
+		<input class="email_pass" type="text" placeholder="请输入密码">
+		<!-- <div class='phone_con'>
+			<input class="area_num" type="text" placeholder="+86">
+			<input class="phone_num" type="text" placeholder="电话号码" focus>
+		</div> -->
+		<p class="p1"><a href="#">改为使用电话号码</a></p>
+		<p class="p2"><a href="#">获取新的电子邮件地址</a></p>
+		<div class="in_btn">
+			<input class="in_one" type="submit" value="取消">
+			<input id="zhuceBtn" type="button" value="注册">
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="js/regexpTools.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+	let str = "";
+
+	$(function(){
+		// console.log("2");
+		$(".p1").click(function(){
+			var a=0;
+			var b=0;
+			
+			if($(".phone_con").css("display")=="none"){
+			// $(".p1").click(function(){
+				$(".email_in").css("display","none");
+				$(".p2").css("display","none");
+				$(".p1 a").replaceWith('<a href="#">改为使用电子邮件</a>');
+				$(".phone_con").css("display","block");
+				$(".p1").css({"margin-top":"44px","margin-bottom":"30px"});	
+				a++;
+			}
+			else if(a=1){
+				// console.log("2");
+				$(".email_in").css("display","block");
+				$(".p2").css("display","block");
+				$(".p1 a").replaceWith('<a href="#">改为使用电话号码</a>');
+				$(".phone_con").css("display","none");
+				$(".p1").css({"margin-top":"0px","margin-bottom":"0px"});	
+				a=0;
+			}
+			
+		});
+		if($(".phone_con").css("display")=="none"){
+			$(".next_teep").click(function(){
+
+				$(".con_one").css("display","none");
+				$(".con_two").css("display","block");
+				$(".p1").css({"margin-top":"0px","margin-bottom":"0px"});
+			})
+		}
+		// $.ajax({
+		// 	type:"POST",
+		// 	url:"foundaccount.php",
+		// 	data:"email_num=$(.email_in).val()$email_num=$(.email_in).val()&email_pass=$(.email_pass).val()"
+		// 	// success:function(){
+		// 	// 	alert("注册成功");
+		// 	// }
+		// })
+		$("#zhuceBtn").click(function(){
+			if($(".p1").children().text().indexOf("电话号码")!=-1){
+				str = "email";
+			// $(".email_in").blur(function(){
+			// 	// if(!regExp1809(str,$(".email_in").val())){
+			// 	// 	// $("#tip").css("display","block");
+					
+			// 	// }
+			// });
+			
+				}else{
+					str = "tel";
+				}
+			let email = "";
+			let tel ="";
+		if(str=="email"){
+			email=$(".email_in").val();
+			tel="";
+			// console.log(8888);
+		}else{
+			tel=$(".phone_num").val();
+			email="";
+		}
+			$.post("foundaccount.php",{
+				"email":email,
+				"tel":tel,
+				"pass": $(".email_pass").val()
+			},function(num){
+				// console.log("8888888888888");
+				console.log(num);
+				if(num==1){
+					// console.log("77777777");
+					location.href="passlogin.html";
+					alert("注册成功！");
+					// location.href="passlogin.html";
+				}else if(num==2){
+					alert("注册失败！");
+				}else if(num==3){
+					alert("该用户已经被注册");
+				}
+			});
+		});
+		});
+</script>

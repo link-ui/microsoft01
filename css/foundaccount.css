@@ -1,0 +1,144 @@
+body,h1,h2,h3,h4,h5,h6,ol,ul,dl,dd,p,input,select,textarea,td{
+	margin:0;
+	padding:0;
+}
+a{
+	text-decoration: none;
+}
+ul,ol{
+	list-style: none;
+}
+img{
+	border:0;
+}
+html,body{
+	height:100%;
+}
+body{
+	font-family:"微软雅黑";
+	width:100%;
+	background-image: url(../img/0_a5dbd4393ff6a725c7e62b61df7e72f0.jpg);
+}
+input{
+	outline: none;
+}
+.tip{
+	color:red;
+	font-size: 12px;
+	display: none;
+}
+.login_con{
+	width:354px;
+	height:251px;
+	background-color: white;
+	z-index: 2;
+	position: fixed;
+	left:50%;
+	top:50%;
+	margin-left: -220px;
+	margin-top: -169px;
+	padding:43px;
+	position: relative;
+}
+.login_con img{
+	width:108px;
+	height:24px;
+}
+.login_con h2{
+	/*margin-top: 20px;*/
+	line-height: 68px;
+	color:#404040;
+}
+.login_con input:nth-child(3){
+	border:none;
+	width:348px;
+	height:34px;
+	font-size: 15px;
+	border-bottom: 1px solid #0067b8;
+	margin-bottom: 7px;
+}
+.login_con p span{
+	font-size: 13px;
+}
+.login_con p a{
+	font-size: 13px;
+	color:#0067b8;
+	line-height: 37px;
+}
+.login_con input:last-child{
+	border:none;
+	width:108px;
+	height:32px;
+	background-color: #0067b8;
+}
+.login_con .in_one{
+	border:none;
+	width:108px;
+	height:32px;
+	background-color: #CCCCCC;
+	margin-left:125px;
+	margin-top: 17px;
+}
+p>a:hover{
+	text-decoration: underline;
+}
+.phone_con{
+	/*background-color: pink;*/
+	width:392px;
+	/*height:52px;*/
+	/*display: flex;*/
+	position: absolute;
+	display: none;
+	top:135px;
+	/*margin-bottom: 20px;*/
+}
+.phone_con .area_num{
+	display: block;
+	width:77px;
+	height:36px;
+	outline: none;
+	border:none;
+	border-bottom: 1px solid #666666;
+	float: left;
+}
+.login_con .phone_con .phone_num{
+	display: block;
+	width:280px;
+	height:36px;
+	border:none;
+	border-bottom: 1px solid #666666;
+	outline: none;
+	margin-left: 16px;
+	background-color: white;
+	float: left;
+}
+.con_two{
+	display:none;
+}
+
+#footer{
+	height:28px;
+	width:100%;
+	background-color: black;
+	opacity:0.6;
+	position: fixed;
+	bottom:0;
+}
+#footer span{
+	display: inline-block;
+	color:white;
+	line-height: 28px;
+	font-size: 12px;
+	margin-left: 1070px;
+	margin-right: 8px;
+}
+#footer a{
+	display: inline-block;
+	color:white;
+	line-height: 28px;
+	font-size: 12px;
+	margin-right: 8px;
+}
+#footer a:hover{
+	text-decoration: underline;
+}
